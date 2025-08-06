@@ -1,4 +1,52 @@
 .guitar-brands {
-  color: #2c3e50;
-  font-family: Arial, sans-serif;
+}
+.container1 {
+  display: flex;
+}
+.title{
+font-family: Satoshi;
+font-weight: 700;
+font-style: Bold;
+font-size: 56px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+
+margin: 10px;
+
+}
+.logo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.browse{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 10%;
+}
+.gitare{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.flutur{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20%;
+}
+.txt{
+  padding-left: 3%;
+}
+.subtitle{
+  margin: 5px;
+  padding-right: 21%;
+
 }
