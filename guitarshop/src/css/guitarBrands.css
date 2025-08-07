@@ -78,9 +78,11 @@
   text-align: center;
 
 }
-.container{
-  margin:0px;
+
+.container {
+  margin: 0px;
 }
+
 .card {
   border: none !important;
   cursor: pointer;
@@ -93,4 +95,60 @@
   align-items: center;
   justify-content: center;
   align-content: center;
+}
+
+.container3 {
+  background-color: #000000;
+}
+
+.con3title {
+  padding: 5%;
+  color: white;
+  font-family: Satoshi;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 44px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.subtitra{
+  color: white;
+  font-family: Satoshi;
+font-weight: 700;
+font-style: Bold;
+font-size: 18px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 8%;
+text-align: center;
+text-transform: uppercase;
+
+}
+.borders {
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #262626;
+  width: 72px;
+  height: 72px;
+}
+.titrat{
+  color: #666666;
+  font-family: Satoshi;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+text-transform: capitalize;
+}
+.peding{
+      padding-bottom: 6%;
 }

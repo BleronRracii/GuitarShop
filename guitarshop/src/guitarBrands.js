@@ -2,6 +2,9 @@ import React from 'react';
 import Footer from './footer'; 
 import './css/guitarBrands.css';
 import Butterfly from './assets/Butterfly.png';
+import Sbrowse from './assets/Sbrowsing.png';
+import deliver from './assets/deliver.png';
+import wallet from './assets/wallet.png';
 import Guitar from './assets/guitar.png';
  
 import { useQuery, gql } from '@apollo/client';
@@ -82,7 +85,30 @@ function GuitarBrands() {
       </div>
 
       <div className="container3">
-        <p>Contact us for more information.</p>
+        <p className='con3title'>Why try <span className='sen' style={{ color: '#FF6428' }}>VibeStrings?</span></p>
+        <div className='d-flex row peding'>
+        <div className='col-4 d-flex flex-column justify-content-center align-items-center'>
+          <div className='borders'>
+          <img src={Sbrowse} className='icons' />
+          </div>
+          <p className='subtitra'>Smooth browsing</p>
+          <p className='titrat'>Lorem ipsum dolor sit amet,<br/> consectetur adipiscing elit.</p>
+        </div>
+        <div className='col-4 d-flex flex-column justify-content-center align-items-center'>
+          <div className='borders'>
+          <img src={deliver} className='icons' />
+          </div>
+          <p className='subtitra'>Easy Delivery</p>
+          <p className='titrat'>Lorem ipsum dolor sit amet,<br/> consectetur adipiscing elit.</p>
+        </div>
+        <div className='col-4 d-flex flex-column justify-content-center align-items-center'>
+          <div className='borders'>
+          <img src={wallet} className='icons' />
+          </div>
+          <p className='subtitra'>Swift Payments</p>
+          <p className='titrat'>Lorem ipsum dolor sit amet,<br/> consectetur adipiscing elit.</p>
+        </div>
+      </div>
       </div>
 
       <div className="container4">
