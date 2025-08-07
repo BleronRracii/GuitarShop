@@ -17,7 +17,9 @@ function GuitarBrands() {
           
           <div className='browse'>
             <p className='title'>Browse top quality</p>
-            <span className='title' style={{ color: '#FF6428' }}>Guitars online</span>
+            <p className='title'>
+            <span className='title' style={{ color: '#FF6428' }}>Guitars </span> online
+            </p>
               <p className='subtitle'>Explore 50k+ latest collections of branded guitars</p>
               <p className='subtitle'>online with VibeStrings.</p>
             </div>
@@ -27,6 +29,7 @@ function GuitarBrands() {
 
         <div className='gitare'>
           <img src={Guitar} className='guitar' width={672} height={586} />
+          <img src={Butterfly} className='rrethi' width={10} height={10} />
         </div>
 
       </div>

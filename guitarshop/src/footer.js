@@ -12,7 +12,7 @@ function Footer() {
       <div className='footer'>
 <div className='first'>
 
-      <div className="logo">
+      <div className="logo-footer">
           <img src={Butterfly} className='Butterfly' />
           <p className='txt'>VibeStrings</p>
       </div>
