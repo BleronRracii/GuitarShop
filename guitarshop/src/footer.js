@@ -9,7 +9,7 @@ import Instagram from './assets/Instagram.png';
 function Footer() {
   return (
     <footer className="container">
-      <div className='footer'>
+      <div className='footer pt-5'>
 <div className='first'>
 
       <div className="logo-footer">
@@ -28,19 +28,19 @@ function Footer() {
 
       </div>
       <div className='first'>
-        <p className='title'>PAGES</p>
+        <p className='title-footer'>PAGES</p>
         <p className='p1'>Store</p>
         <p className='p1'>Collections</p>
         <p className='p1'>Support</p>
       </div>
       <div className='first'>
-        <p className='title'>PRODUCT</p>
+        <p className='title-footer'>PRODUCT</p>
         <p className='p1'>Terms</p>
         <p className='p1'>Privatcy Policy</p>
         <p className='p1'>Copyright</p>
       </div>
       <div className='first'>
-        <p className='title'>FOLLOW US</p>
+        <p className='title-footer'>FOLLOW US</p>
         <div className='social'>
           <img src={Facebook} className='Facebook' />
           <img src={Twitter} className='Twitter' />
@@ -49,7 +49,7 @@ function Footer() {
       </div>
       </div>
       <div className='copyright'>
-        <p className='txt3'>© 2022 Copyright.VibeStrings</p>
+        <p className='txt3 m-0 mt-5 pb-5 p-0'>© 2022 Copyright.VibeStrings</p>
       </div>
     </footer>
   );

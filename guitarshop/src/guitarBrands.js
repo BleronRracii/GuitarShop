@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from './footer'; 
 import './css/guitarBrands.css';
 import Butterfly from './assets/Butterfly.png';
@@ -72,18 +73,21 @@ function GuitarBrands() {
   <div class="row g-4">
 
 {data.findAllBrands.map(brand => (
-          
-    <div class="col-md-3" key={brand.id}>
-      <div class="card text-center">
-        <div class="card-body">
+  <div className="col-md-3" key={brand.id}>
+    <Link
+      to="/guitarBrands"
+      state={{ brand }}
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
+      <div className="card text-center">
+        <div className="card-body">
           {/* {brand.name} ({brand.origin}) */}
-            {brand.image && <img src={brand.image} alt={brand.name} style={{height: 40}} />}
+          {brand.image && <img src={brand.image} alt={brand.name} style={{height: 40}} />}
         </div>
       </div>
-    </div> 
-           
-          
-        ))}
+    </Link>
+  </div>
+))}
 
   </div>
 </div>
@@ -127,7 +131,7 @@ function GuitarBrands() {
             <img src={appstore} className='appstore' />
           </div>
         </div>
-        <div className='col-6 orangecircle circle'>
+        <div className='col-6  circle'>
           <img src={s3} className='s3' />
           <img src={s1} className='s1' />
         </div>

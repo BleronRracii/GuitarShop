@@ -1,4 +1,225 @@
 .guitar-models {
-  color: #16a085;
-  font-family: Verdana, sans-serif;
+  
+}
+
+.img3{
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.tekst{
+margin-top: 5%;
+width: 475px;
+font-family: Satoshi;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+
+}
+
+
+.container1 {
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.title {
+  font-family: Satoshi;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 56px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+
+  margin: 10px;
+
+}
+
+.logo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.browseModel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.gitare {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+.rrethi {
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  width: 60px;
+  margin-top: -32px;
+  margin-right: 250px;
+  object-fit: scale-down;
+}
+
+.flutur {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20%;
+}
+
+.txt {
+  padding-left: 3%;
+}
+
+.subtitle {
+  margin: 5px;
+  padding-right: 21%;
+
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+.container {
+  margin: 0px;
+}
+
+.card {
+  border: none !important;
+  cursor: pointer;
+}
+
+.brands {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.container3 {
+  background-color: #000000;
+}
+
+.con3title {
+  padding: 5%;
+  color: white;
+  font-family: Satoshi;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 44px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.subtitra {
+  color: white;
+  font-family: Satoshi;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 8%;
+  text-align: center;
+  text-transform: uppercase;
+
+}
+
+.borders {
+  margin: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #262626;
+  width: 72px;
+  height: 72px;
+}
+
+.titrat {
+  color: #666666;
+  font-family: Satoshi;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.peding {
+  padding-bottom: 6%;
+}
+
+.para1 {
+  font-family: Satoshi;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 48px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.playstore {
+  margin-right: 10px;
+}
+
+.orangecircle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pstore {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  background-image: url('../assets/circle.png');
+  background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sector1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.s1{
+      width: inherit;
+      margin-left: -5%;
+      margin-top: 15%;
+}
+.s3{
+  width: inherit;
 }
