@@ -6,6 +6,11 @@ import Sbrowse from './assets/Sbrowsing.png';
 import deliver from './assets/deliver.png';
 import wallet from './assets/wallet.png';
 import Guitar from './assets/guitar.png';
+import playstore from './assets/playstore.png';
+import appstore from './assets/appstore.png';
+import circle from './assets/circle.png';
+import s3 from './assets/guitar s3.png';
+import s1 from './assets/guitar s1.png';
  
 import { useQuery, gql } from '@apollo/client';
 
@@ -86,7 +91,7 @@ function GuitarBrands() {
 
       <div className="container3">
         <p className='con3title'>Why try <span className='sen' style={{ color: '#FF6428' }}>VibeStrings?</span></p>
-        <div className='d-flex row peding'>
+        <div className='d-flex row peding m-5'>
         <div className='col-4 d-flex flex-column justify-content-center align-items-center'>
           <div className='borders'>
           <img src={Sbrowse} className='icons' />
@@ -112,7 +117,22 @@ function GuitarBrands() {
       </div>
 
       <div className="container4">
-        <p>Follow us on social media for updates.</p>
+        <div className='d-flex row m-5'>
+        <div className='col-6 sector1'>
+          <p className='para1'>
+            Browse and buy your<br/> <span style={{ color: '#FF6428' }}>favorite guitars</span> with<br/> VibeStrings.
+          </p>
+          <div className='pstore'>
+            <img src={playstore} className='playstore' />
+            <img src={appstore} className='appstore' />
+          </div>
+        </div>
+        <div className='col-6 orangecircle circle'>
+          <img src={s3} className='s3' />
+          <img src={s1} className='s1' />
+        </div>
+        
+      </div>
       </div>
 
       <Footer /> 

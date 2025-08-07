@@ -2,6 +2,7 @@
 
 .container1 {
   display: flex;
+  margin-bottom: 5%;
 }
 
 .title {
@@ -114,19 +115,20 @@
   text-align: center;
 }
 
-.subtitra{
+.subtitra {
   color: white;
   font-family: Satoshi;
-font-weight: 700;
-font-style: Bold;
-font-size: 18px;
-leading-trim: NONE;
-line-height: 100%;
-letter-spacing: 8%;
-text-align: center;
-text-transform: uppercase;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 18px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 8%;
+  text-align: center;
+  text-transform: uppercase;
 
 }
+
 .borders {
   margin: 5%;
   display: flex;
@@ -137,18 +139,67 @@ text-transform: uppercase;
   width: 72px;
   height: 72px;
 }
-.titrat{
+
+.titrat {
   color: #666666;
   font-family: Satoshi;
-font-weight: 400;
-font-style: Regular;
-font-size: 14px;
-leading-trim: NONE;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-text-transform: capitalize;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: capitalize;
 }
-.peding{
-      padding-bottom: 6%;
+
+.peding {
+  padding-bottom: 6%;
+}
+
+.para1 {
+  font-family: Satoshi;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 48px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.playstore {
+  margin-right: 10px;
+}
+
+.orangecircle {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pstore {
+  display: flex;
+  justify-content: center;
+}
+
+.circle {
+  background-image: url('../assets/circle.png');
+  background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sector1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.s1{
+      width: inherit;
+      margin-left: -5%;
+      margin-top: 15%;
+}
+.s3{
+  width: inherit;
 }
