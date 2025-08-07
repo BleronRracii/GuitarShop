@@ -27,13 +27,13 @@ function GuitarBrands() {
 
       <div className="container1">
 
-        <div className="logo">
+        <div className="logo mt-5">
           <div className='flutur'>
           <img src={Butterfly} className='Butterfly' />
-          <p className='txt'>VibeStrings</p>
+          <p className='txt m-0'>VibeStrings</p>
           </div>
           
-          <div className='browse'>
+          <div className='browse mt-5'>
             <p className='title'>Browse top quality</p>
             <p className='title'>
             <span className='title' style={{ color: '#FF6428' }}>Guitars </span> online
