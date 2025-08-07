@@ -4,7 +4,9 @@
   
   font-family: 'Satoshi', sans-serif;
 }
-
+.container{
+  max-width: 100% !important;
+}
 body {
   overflow: auto;
   font-family: 'Satoshi', sans-serif;

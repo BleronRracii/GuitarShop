@@ -1,9 +1,27 @@
 import React from 'react';
-import Footer from './footer';
+import Footer from './footer'; 
 import './css/guitarBrands.css';
 import Butterfly from './assets/Butterfly.png';
 import Guitar from './assets/guitar.png';
+ 
+import { useQuery, gql } from '@apollo/client';
+
+const GET_BRANDS = gql`
+  query {
+    findAllBrands {
+      id
+      name
+      origin
+      image
+    }
+  }
+`;
+
 function GuitarBrands() {
+  const { loading, error, data } = useQuery(GET_BRANDS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  if (!data || !data.findAllBrands) return null;
   return (
     <div className="guitar-brands">
 
@@ -34,9 +52,33 @@ function GuitarBrands() {
 
       </div>
 
-
+ 
       <div className="container2">
-        <p>Explore our wide range of guitar brands.</p>
+        <div className='title2'> 
+          <p className='title' style={{ color: '#FF6428' }}> 
+            <span className='title' style={{ color: '#000000ff' }}>Featuring the </span> Best Brands
+            </p>
+          <p className='subtitle'>Select your preferred brand and explore our exquisite collection.</p>
+        </div>
+        <div class="container bg-white py-5">
+  <div class="row g-4">
+
+{data.findAllBrands.map(brand => (
+          
+    <div class="col-md-3" key={brand.id}>
+      <div class="card text-center">
+        <div class="card-body">
+          {/* {brand.name} ({brand.origin}) */}
+            {brand.image && <img src={brand.image} alt={brand.name} style={{height: 40}} />}
+        </div>
+      </div>
+    </div> 
+           
+          
+        ))}
+
+  </div>
+</div>
       </div>
 
       <div className="container3">
