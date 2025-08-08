@@ -28,6 +28,7 @@
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  gap: 10px;
 }
 .txt{font-family: Satoshi;
 font-weight: 700;
@@ -37,10 +38,12 @@ leading-trim: NONE;
 line-height: 100%;
 letter-spacing: 0%;
 text-align: center;
-
+margin:0;
+cursor: pointer;
 
 }
 .txt1{
+  cursor: pointer;
   color: #666666;
 ;
 font-family: Satoshi;
@@ -50,6 +53,7 @@ font-size: 16px;
 line-height: 160%;
 letter-spacing: 0%;
 text-align: center;
+margin: 0;
 }
 .sms{
   display: flex;
@@ -59,6 +63,7 @@ text-align: center;
   gap: 25px;
 }
 .title-footer{
+  cursor: pointer;
   font-family: Satoshi;
 font-weight: 700;
 font-style: Bold;
@@ -69,6 +74,7 @@ letter-spacing: 0%;
 text-align: center; 
 }
  .p1{
+  cursor: pointer;
   color:#666666;
   font-family: Satoshi;
 font-weight: 400;
@@ -81,6 +87,7 @@ text-align: center;
 
  }
  .social{
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;

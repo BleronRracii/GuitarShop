@@ -76,7 +76,7 @@ function GuitarBrands() {
   <div className="col-md-3" key={brand.id}>
     <Link
       to="/guitarModels"
-      state={{ brandId: brand.id, brandName: brand.name }}
+      state={{ brandId: brand.id, brandName: brand.name, image: brand.image }}
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <div className="card text-center">

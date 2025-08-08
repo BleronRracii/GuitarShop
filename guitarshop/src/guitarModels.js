@@ -7,11 +7,12 @@ import Guitar from './assets/guitar.png';
 import ibanez from './assets/ibanez.png';
 import image3 from './assets/image 3.png';
 import FilterDropdown from './filter';
-import React, { useState } from 'react';
+// ...existing code...
+import React, { useState, useEffect } from 'react';
 import { useQuery, gql } from '@apollo/client';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from './footer';
-
+import { Link } from 'react-router-dom';
 
 const FIND_MODELS_BY_BRAND = gql`
   query FindUniqueBrand($id: ID!) {
@@ -34,7 +35,9 @@ const FIND_MODELS_BY_BRAND = gql`
 `;
 
 function GuitarModels() {
-  // ...existing code...
+  const navigate = useNavigate();
+  // Search state
+  const [search, setSearch] = useState('');
   // Back button handler
   const handleBack = () => {
     window.location.href = '/';
@@ -50,9 +53,27 @@ function GuitarModels() {
   const [page, setPage] = useState(1);
   const pageSize = 6;
   const models = data?.findUniqueBrand?.models || [];
-  const totalResults = models.length;
-  const totalPages = Math.ceil(totalResults / pageSize);
-  const paginatedModels = models.slice((page - 1) * pageSize, page * pageSize);
+
+  // Filter state
+  const [selectedType, setSelectedType] = useState('');
+  // Get unique model types from API data
+  const modelTypes = Array.from(new Set(models.map(m => m.type))).filter(Boolean);
+
+  // Filter models by selected type and search
+  let filteredModels = selectedType ? models.filter(m => m.type === selectedType) : models;
+  if (search.trim()) {
+    const searchLower = search.trim().toLowerCase();
+    filteredModels = filteredModels.filter(m =>
+      m.name.toLowerCase().includes(searchLower) ||
+      m.type.toLowerCase().includes(searchLower)
+    );
+  }
+  const totalResults = filteredModels.length; // Use filtered results
+  const totalPages = Math.ceil(totalResults / pageSize); // Calculate total pages based on filtered results
+  const paginatedModels = filteredModels.slice((page - 1) * pageSize, page * pageSize); // Paginate filtered results
+
+  // Reset page when filter changes
+  useEffect(() => { setPage(1); }, [selectedType]);
 
   // Pagination numbers logic (with ellipsis)
   const getPageNumbers = () => {
@@ -126,14 +147,24 @@ Ask ChatGPT</span>
         <div className='row  ' style={{ padding: '0', margin: '0' ,width:'98vw' }}>
           <div className='col-4'></div>
           <div className='col-4 d-flex flex-row-reverse align-items-center'>
-            <FilterDropdown />
+            <FilterDropdown
+              options={modelTypes}
+              selected={selectedType}
+              onSelect={setSelectedType}
+            />
              
           </div>
           <div className='col-4'>
-<div class="group">
-  <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
-  <input placeholder="Search by name" type="search" class="input" />
-</div>
+            <div className="group">
+              <svg className="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+              <input
+                placeholder="Search by name or type"
+                type="search"
+                className="input"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+            </div>
           </div>
         </div>
   {/* ...existing code... */}
@@ -145,17 +176,26 @@ Ask ChatGPT</span>
           )}
           {paginatedModels.map(model => (
             <div className="col-md-4" key={model.id}>
-              <div className="card text-center   mb-4"  style={{ height: '348px',overflow:'auto' }}>
+              <Link
+  to={`/guitar/${model.id}`}
+  state={{ brandId, modelId: model.id, image: model.image }}
+  style={{ textDecoration: 'none', color: 'inherit' }}
+>
+              <div
+                className="card text-center mb-4"
+                style={{ height: '348px', overflow: 'auto', cursor: 'pointer' }}
+                 
+              >
                 {model.image && (
-                  <img src={model.image} alt={model.name} className="card-img-top" style={{ maxHeight: '180px', objectFit: 'cover', borderRadius: '18px 18px 0 0' }} />
+                  <img src={model.image} className="card-img-top" style={{ maxHeight: '180px', objectFit: 'cover', borderRadius: '18px 18px 0 0' }} />
                 )}
                 <div className="card-body">
                   <h5 className="card-title-figma" >{model.name}</h5>
-                  {/* <p className="card-text" style={{ color: '#333', fontSize: '1rem' }}>{model.description}</p> */}
-                  {/* <span style={{ color: '#888', fontSize: '0.95rem' }}>Type: {model.type}</span><br/> */}
-                  <h5  className='card-price-figma' > ${model.price}</h5>
+                  <h5 className='card-price-figma' > ${model.price}</h5>
                 </div>
               </div>
+              </Link>
+              
             </div>
           ))}
         </div>
