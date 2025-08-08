@@ -10,6 +10,7 @@ import FilterDropdown from './filter';
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import { useLocation } from 'react-router-dom';
+import Footer from './footer';
 
 
 const FIND_MODELS_BY_BRAND = gql`
@@ -33,6 +34,11 @@ const FIND_MODELS_BY_BRAND = gql`
 `;
 
 function GuitarModels() {
+  // ...existing code...
+  // Back button handler
+  const handleBack = () => {
+    window.location.href = '/';
+  };
   const location = useLocation();
   const brandId = location.state?.brandId || '';
   const { data, loading, error } = useQuery(FIND_MODELS_BY_BRAND, {
@@ -72,6 +78,26 @@ function GuitarModels() {
 
   return (
     <div className="guitar-models">
+      <div style={{ position: 'absolute', top: 20, left: 20, zIndex: 1000 }}>
+        <button
+          onClick={handleBack}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            background: 'none',
+            border: 'none',
+            color: '#222',
+            fontSize: '1.1rem',
+            cursor: 'pointer',
+            fontFamily: 'Circular Std, Arial, sans-serif',
+            fontWeight: 'bold',
+            padding: 0
+          }}
+        >
+          <span style={{ fontSize: '1.5rem', marginRight: 8 }}>&larr;</span>
+          Back To Home
+        </button>
+      </div>
       <div className="container1">
 
         <div className="logo mt-5">
@@ -97,7 +123,7 @@ Ask ChatGPT</span>
 
       </div>
       <div className='guitarmodels'>
-        <div className='row  '>
+        <div className='row  ' style={{ padding: '0', margin: '0' ,width:'98vw' }}>
           <div className='col-4'></div>
           <div className='col-4 d-flex flex-row-reverse align-items-center'>
             <FilterDropdown />
@@ -177,10 +203,15 @@ Ask ChatGPT</span>
               </div>
             )}
           </div>
+          
         </div>
   {/* Removed duplicate bottom pagination menu */}
         
       </div>
+      <div className="row" style={{ padding: '0', margin: '0' ,width:'100%' }}>
+        <Footer />
+      </div>
+      
     </div>
   );
 }
