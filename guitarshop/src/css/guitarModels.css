@@ -1,5 +1,6 @@
 .guitar-models {
-  
+      width: 98vw !important; 
+    box-sizing: border-box;
 }
 
 /* From Uiverse.io by alexruix */ 
@@ -8,16 +9,17 @@
  align-items: center;
  position: relative;
  max-width: 485px;
+ height: 100%;
 }
 
 .input {
  width: 100%;
- height: 40px;
+ height: 100%;
  line-height: 28px;
  padding: 0 1rem;
  padding-left: 2.5rem;
  border: 2px solid rgb(226, 226, 226);
- border-radius: 8px;
+ border-radius: 4px;
  outline: none;
  /* background-color: #f3f3f4; */
  color: #0d0c22;
@@ -107,6 +109,31 @@ text-align: center;
   flex-direction: column;
   align-items: flex-end;
 
+}
+.card-title-figma {
+  font-family: Satoshi;
+font-weight: 500;
+font-style: Medium;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%; 
+text-align: left;
+}
+.card-price-figma{
+  font-family: Satoshi;
+font-weight: 400;
+font-style: Regular;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: left;
+  color: #666666; 
+
+}
+.card-img-top{
+  object-fit: scale-down !important;
 }
 
 .rrethi {

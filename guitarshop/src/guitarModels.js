@@ -1,12 +1,73 @@
 import './css/guitarModels.css';
 import './css/guitarBrands.css';
+import './css/pagination.css';
+import './css/pagination.css';
 import Butterfly from './assets/Butterfly.png';
 import Guitar from './assets/guitar.png';
 import ibanez from './assets/ibanez.png';
 import image3 from './assets/image 3.png';
 import FilterDropdown from './filter';
+import React, { useState } from 'react';
+import { useQuery, gql } from '@apollo/client';
+import { useLocation } from 'react-router-dom';
+
+
+const FIND_MODELS_BY_BRAND = gql`
+  query FindUniqueBrand($id: ID!) {
+    findUniqueBrand(id: $id) {
+      id
+      name
+      origin
+      image
+      categories
+      models {
+        id
+        name
+        type
+        image
+        description
+        price
+      }
+    }
+  }
+`;
 
 function GuitarModels() {
+  const location = useLocation();
+  const brandId = location.state?.brandId || '';
+  const { data, loading, error } = useQuery(FIND_MODELS_BY_BRAND, {
+    skip: !brandId,
+    variables: { id: brandId },
+  });
+
+  // Pagination logic
+  const [page, setPage] = useState(1);
+  const pageSize = 6;
+  const models = data?.findUniqueBrand?.models || [];
+  const totalResults = models.length;
+  const totalPages = Math.ceil(totalResults / pageSize);
+  const paginatedModels = models.slice((page - 1) * pageSize, page * pageSize);
+
+  // Pagination numbers logic (with ellipsis)
+  const getPageNumbers = () => {
+    const numbers = [];
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) numbers.push(i);
+    } else {
+      if (page <= 4) {
+        numbers.push(1, 2, 3, 4, 5, '...', totalPages);
+      } else if (page >= totalPages - 3) {
+        numbers.push(1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
+      } else {
+        numbers.push(1, '...', page - 1, page, page + 1, '...', totalPages);
+      }
+    }
+    return numbers;
+  };
+  const pageNumbers = getPageNumbers();
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) setPage(newPage);
+  };
 
 
   return (
@@ -36,12 +97,11 @@ Ask ChatGPT</span>
 
       </div>
       <div className='guitarmodels'>
-        <div className='row'>
+        <div className='row  '>
           <div className='col-4'></div>
-          <div className='col-4 d-flex flex-column align-items-center'>
+          <div className='col-4 d-flex flex-row-reverse align-items-center'>
             <FilterDropdown />
-            <div style={{ marginTop: '16px', width: '100%' }}>
-            </div>
+             
           </div>
           <div className='col-4'>
 <div class="group">
@@ -50,6 +110,75 @@ Ask ChatGPT</span>
 </div>
           </div>
         </div>
+  {/* ...existing code... */}
+        <div className='row p-5 m-5  pb-0'>
+          {loading && <div>Loading models...</div>}
+          {error && <div>Error loading models.</div>}
+          {paginatedModels.length === 0 && !loading && !error && (
+            <div className="col-md-12">No models found for this brand.</div>
+          )}
+          {paginatedModels.map(model => (
+            <div className="col-md-4" key={model.id}>
+              <div className="card text-center   mb-4"  style={{ height: '348px',overflow:'auto' }}>
+                {model.image && (
+                  <img src={model.image} alt={model.name} className="card-img-top" style={{ maxHeight: '180px', objectFit: 'cover', borderRadius: '18px 18px 0 0' }} />
+                )}
+                <div className="card-body">
+                  <h5 className="card-title-figma" >{model.name}</h5>
+                  {/* <p className="card-text" style={{ color: '#333', fontSize: '1rem' }}>{model.description}</p> */}
+                  {/* <span style={{ color: '#888', fontSize: '0.95rem' }}>Type: {model.type}</span><br/> */}
+                  <h5  className='card-price-figma' > ${model.price}</h5>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="row align-items-center px-5 mx-5   pb-5">
+          <div className="col-md-6 text-start">
+            <span className='resultsmix' >
+              
+              SHOWING 
+              <span style={{   color: '#3D3D46' }}> {paginatedModels.length} </span>
+               RESULTS FROM 
+               <span style={{   color: '#3D3D46' }}> {totalResults}</span>
+               
+            </span>
+          </div>
+          <div className="col-md-6 text-end">
+            {totalPages > 1 && (
+              <div className="pagination-container" style={{ margin: 0, justifyContent: 'flex-end' }}>
+                <button
+                  className="pagination-button"
+                  disabled={page === 1}
+                  onClick={() => handlePageChange(page - 1)}
+                >
+                  &lt;
+                </button>
+                {pageNumbers.map((number, index) =>
+                  number === "..." ? (
+                    <span key={index} className="pagination-dots">...</span>
+                  ) : (
+                    <button
+                      key={index}
+                      className={`pagination-button ${page === number ? "active" : ""}`}
+                      onClick={() => handlePageChange(number)}
+                    >
+                      {number}
+                    </button>
+                  )
+                )}
+                <button
+                  className="pagination-button"
+                  disabled={page === totalPages}
+                  onClick={() => handlePageChange(page + 1)}
+                >
+                  &gt;
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+  {/* Removed duplicate bottom pagination menu */}
         
       </div>
     </div>

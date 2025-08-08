@@ -1,3 +1,14 @@
+/* Circular Std font import */
+@font-face {
+	font-family: 'Circular Std';
+	src: url('https://fonts.cdnfonts.com/s/17592/CircularStd-Book.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, .pagination-container, .results-info, .card, .txt, .title, .subtitle {
+	font-family: 'Circular Std', Arial, sans-serif;
+}
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,300,400&display=swap');
 
 * {

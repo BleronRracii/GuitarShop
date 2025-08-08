@@ -8,7 +8,8 @@ import GuitarModels from './guitarModels';
 function App() {
   return (
     <Routes>
-      <Route path="/guitarBrands" element={<GuitarModels />} />
+      <Route path="/guitarBrands" element={<GuitarBrands />} />
+      <Route path="/guitarModels" element={<GuitarModels />} />
       <Route path="/" element={<GuitarBrands />} />
     </Routes>
   );

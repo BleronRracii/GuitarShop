@@ -75,8 +75,8 @@ function GuitarBrands() {
 {data.findAllBrands.map(brand => (
   <div className="col-md-3" key={brand.id}>
     <Link
-      to="/guitarBrands"
-      state={{ brand }}
+      to="/guitarModels"
+      state={{ brandId: brand.id, brandName: brand.name }}
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <div className="card text-center">
